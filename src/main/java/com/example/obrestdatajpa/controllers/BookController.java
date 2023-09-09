@@ -4,9 +4,13 @@ import com.example.obrestdatajpa.entities.Book;
 import com.example.obrestdatajpa.repositories.BookRepository;
 import java.util.List;
 import java.util.Optional;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -22,6 +26,12 @@ public class BookController {
     
     //CRUD
     //Crear un Libro
+    @PostMapping("/api/books")
+    public Book create(@RequestBody Book book, @RequestHeader HttpHeaders headers){
+        System.out.println(headers.get("User-Agent"));
+        return bookRepository.save(book);
+        
+    }
     
     
     //Actualizar un Libro
