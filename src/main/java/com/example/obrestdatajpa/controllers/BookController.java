@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class BookController {
     
     private final Logger log = LoggerFactory.getLogger(BookController.class);
-    private BookRepository bookRepository;
+    private final BookRepository bookRepository;
 
     public BookController(BookRepository bookRepository) {
         this.bookRepository = bookRepository;
