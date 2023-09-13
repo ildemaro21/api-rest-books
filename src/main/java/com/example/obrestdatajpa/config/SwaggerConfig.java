@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Configuración Swagger para generación de documentacion de API REST 
  * 
- * http://localhost:8080/swagger-ui/
+ * http://localhost:8080/doc/swagger-ui.html
  */
 
 @Configuration

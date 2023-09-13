@@ -2,6 +2,8 @@ package com.example.obrestdatajpa.controllers;
 
 import com.example.obrestdatajpa.entities.Book;
 import com.example.obrestdatajpa.repositories.BookRepository;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import java.util.List;
 import java.util.Optional;
 import org.slf4j.Logger;
@@ -88,8 +90,9 @@ public class BookController {
     }
     
     //Buscar un libro segun ID
+    @Operation(summary = "foo", description = "Busqueda de un libro por su clave primaria id Long") //Agregar una descripcion en Swagger
     @GetMapping("/api/books/{id}")
-    public ResponseEntity<Book> findOneById(@PathVariable Long id){
+    public ResponseEntity<Book> findOneById(@Parameter @PathVariable Long id){
         Optional<Book> book = bookRepository.findById(id);
         if(book.isPresent())
             return ResponseEntity.ok(book.get());
